@@ -2,6 +2,6 @@ class TwitterBot
   @logger = Logger.new(STDOUT)
 
   def self.tweet
-    @logger.info('test')
+    @logger.info('tweet')
   end
 end

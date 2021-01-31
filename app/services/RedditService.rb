@@ -20,7 +20,7 @@ class RedditService
     reddit_client_id = ENV['REDDIT_CLIENT_ID']
     reddit_client_secret = ENV['REDDIT_SECRET']
 
-    json = HTTParty.post(OAUTH_URL, headers: {
+    response = HTTParty.post(OAUTH_URL, headers: {
       'User-Agent': 'RedditStocks/0.1 by Ulmii'
     },
                          body: {
@@ -33,6 +33,6 @@ class RedditService
                            password: reddit_client_secret
                          })
 
-    @token = JSON.parse(json.body)['access_token']
+    @token = JSON.parse(response.body)['access_token']
   end
 end
