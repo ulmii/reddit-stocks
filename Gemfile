@@ -5,6 +5,12 @@ ruby '2.7.2'
 
 gem 'dotenv-rails', groups: [:development, :test]
 
+gem 'twitter', '>= 7.0.0'
+
+gem 'rufus-scheduler', '>= 3.7.0'
+
+gem 'httparty'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.1'
 # Use postgresql as the database for Active Record
