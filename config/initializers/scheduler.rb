@@ -17,4 +17,5 @@ end
 
 scheduler.every '1d' do
   IEXService.runner
+  RedditStocksService.runner
 end

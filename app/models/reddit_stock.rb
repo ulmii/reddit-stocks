@@ -1,0 +1,2 @@
+class RedditStock < ApplicationRecord
+end
