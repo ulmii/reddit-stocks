@@ -10,3 +10,11 @@ scheduler = Rufus::Scheduler.new
 scheduler.every '3400s' do
   RedditService.generate_token
 end
+
+scheduler.every '30m' do
+  RedditService.runner
+end
+
+scheduler.every '1d' do
+  IEXService.runner
+end
