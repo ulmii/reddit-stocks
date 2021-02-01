@@ -43,7 +43,7 @@ class RedditService
     end
   end
 
-  private_class_method def self.save_posts(posts)
+  def self.save_posts(posts)
     old_batch = TRUE
     posts.each do |post|
       if RedditPost.where(name: post.name).blank?
@@ -58,7 +58,7 @@ class RedditService
     old_batch
   end
 
-  private_class_method def self.generate_token
+  def self.generate_token
     @logger.info('Generating new reddit access token')
 
     reddit_username = ENV['REDDIT_USER']
@@ -80,5 +80,10 @@ class RedditService
                          })
 
     @token = JSON.parse(response.body)['access_token']
+  end
+
+  class << self
+    private :save_posts
+    private :generate_token
   end
 end
