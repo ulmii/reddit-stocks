@@ -1,6 +1,10 @@
 class RedditStocksService
   @logger = Logger.new($stdout)
 
+  def self.reddit_stocks(limit = 25, offset = 0)
+    RedditStock.all.limit(limit).offset(offset).order(count: :desc)
+  end
+
   def self.runner
     RedditPost.find_each.each do |post|
       post.title.split.map(&:upcase).each do |word|
